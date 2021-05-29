@@ -23,7 +23,7 @@ class NilaiController extends Controller
             ->get();
         // print_r($data);
         // exit;
-        return view('transaksi_nilai', ['data' => $data]);
+        return view('transaksi_nilai_0263', ['data' => $data]);
     }
 
     public function search(Request $request)
@@ -40,7 +40,7 @@ class NilaiController extends Controller
             ->get();
         // print_r($data);
         // exit;
-        return view('transaksi_nilai', ['data' => $data]);
+        return view('transaksi_nilai_0263', ['data' => $data]);
     }
 
     /**
