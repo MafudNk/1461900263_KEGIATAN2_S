@@ -16,13 +16,16 @@
 <body>
     <div class="container">
         <div class="col-md-12">
-        <div style="height: 15px;"></div>
-            <div class="row">
-            <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Siswa" class="input-group-text">
-            <div style="width: 10px;"></div>
-            <input type="button" value="cari" class="btn btn-primary">
-            
-            </div>
+            <div style="height: 15px;"></div>
+                <form action="/nilai/cari" method="GET">
+                <div class="row">
+                    <strong>Pencarian : </strong>
+                    <div style="width: 10px;"></div>
+                    <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Siswa" value="{{ old('nama') }}" class="input-group-text">
+                    <div style="width: 10px;"></div>
+                    <input type="submit" value="cari" class="btn btn-primary">
+                </div>
+                </form>
             <br>
             <table class="table">
                 <tr>

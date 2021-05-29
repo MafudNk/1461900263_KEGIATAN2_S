@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',  [NilaiController::class, 'index']);
 
 Route::get('/nilai', [NilaiController::class, 'index']);
+Route::get('/nilai/cari',[NilaiController::class, 'search']);

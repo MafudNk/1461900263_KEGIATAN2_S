@@ -26,6 +26,23 @@ class NilaiController extends Controller
         return view('transaksi_nilai', ['data' => $data]);
     }
 
+    public function search(Request $request)
+    {
+        $nama = $request->nama;
+
+        $data = DB::table('tbl_nilai')
+            ->where('data_siswa.nama_siswa','like',"%".$nama."%")
+            ->join('setup_kelas','tbl_nilai.id_kelas','=','setup_kelas.id_kelas')
+            ->join('setup_pelajaran','tbl_nilai.id_pelajaran','=','setup_pelajaran.id_pelajaran')
+            ->join('data_guru','tbl_nilai.id_guru','=','data_guru.id_guru')
+            ->join('data_siswa','tbl_nilai.id_siswa','=','data_siswa.id_siswa')
+            ->select('tbl_nilai.nilai', 'setup_kelas.nama_kelas', 'data_guru.nama_guru', 'data_siswa.nama_siswa', 'setup_pelajaran.nama_pelajaran')
+            ->get();
+        // print_r($data);
+        // exit;
+        return view('transaksi_nilai', ['data' => $data]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
